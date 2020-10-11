@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: monospace;
+}
+
+//colors
+$background: rgb(0, 0, 2);
+$orange: rgb(248, 144, 14);
+$white: rgb(253, 255, 255);
+$dark-grey: rgb(35, 39, 40);
+$light-grey: rgb(144, 150, 151);
+
+//shortcuts
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+body {
+  background: $background;
+  min-height: 100vh;
+  @include flex(row, center, center);
+}
+
+.calculator-body {
+  min-height: 600px;
+  width: 400px;
+  @include flex(column, top, center);
+}
+
+.calculator-screen {
+  height: 170px;
+  width: 90%;
+  color: white;
+  font-size: 7rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.screen-figures {
+  padding: 0rem 2rem 1rem 1rem;
+}
+
+.calculator-buttons {
+  height: 430px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1.2rem;
+  row-gap: 1.2rem;
+}
+
+.button {
+  @include flex(row, center, center);
+  font-size: 4rem;
+  background: $dark-grey;
+  color: $white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.bt1,
+.bt2,
+.bt3 {
+  background: $light-grey;
+  color: $background;
+}
+
+.bt4,
+.bt8,
+.bt12,
+.bt16,
+.bt19 {
+  background: $orange;
+}
+
+.bt2 {
+  font-size: 3.4rem;
+}
+
+.bt17 {
+  grid-column: 1/3;
+  border-radius: 5rem;
+  justify-content: left;
+  padding-left: 3.5rem;
+}
+
+//animations & stuff
+.button:hover {
+  filter: brightness(120%);
+}
+
+.selected {
+  filter: brightness(130%);
+  color: black;
+}
