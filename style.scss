@@ -31,16 +31,16 @@ body {
 }
 
 .calculator-body {
-  min-height: 600px;
-  width: 400px;
+  min-height: 500px;
+  width: 300px;
   @include flex(column, top, center);
 }
 
 .calculator-screen {
-  height: 170px;
+  height: 70px;
   width: 90%;
   color: white;
-  font-size: 7rem;
+  font-size: 5rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -51,7 +51,7 @@ body {
 }
 
 .calculator-buttons {
-  height: 430px;
+  height: 330px;
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -61,7 +61,7 @@ body {
 
 .button {
   @include flex(row, center, center);
-  font-size: 4rem;
+  font-size: 3rem;
   background: $dark-grey;
   color: $white;
   border-radius: 50%;
@@ -84,7 +84,7 @@ body {
 }
 
 .bt2 {
-  font-size: 3.4rem;
+  font-size: 2.4rem;
 }
 
 .bt17 {

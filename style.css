@@ -29,8 +29,8 @@ body {
 }
 
 .calculator-body {
-  min-height: 600px;
-  width: 400px;
+  min-height: 500px;
+  width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,10 +47,10 @@ body {
 }
 
 .calculator-screen {
-  height: 170px;
+  height: 70px;
   width: 90%;
   color: white;
-  font-size: 7rem;
+  font-size: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,7 +67,7 @@ body {
 }
 
 .calculator-buttons {
-  height: 430px;
+  height: 330px;
   width: 90%;
   display: -ms-grid;
   display: grid;
@@ -92,7 +92,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 4rem;
+  font-size: 3rem;
   background: #232728;
   color: #fdffff;
   border-radius: 50%;
@@ -115,7 +115,7 @@ body {
 }
 
 .bt2 {
-  font-size: 3.4rem;
+  font-size: 2.4rem;
 }
 
 .bt17 {
