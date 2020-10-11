@@ -1,6 +1,8 @@
 class Calculator {
   constructor() {
     this.buttons = document.querySelectorAll(".button");
+    this.calculatorScreen = document.querySelector(".calculator-screen");
+    this.calculatorButtons = document.querySelector(".calculator-buttons");
     this.screenFigures = document.querySelector(".screen-figures");
     this.numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ","];
     this.functions_array = ["*", "-", "+", "/"];
@@ -10,8 +12,23 @@ class Calculator {
     this.first_number_add = null;
     this.result = false;
   }
-  screenDisplay(toDisplay) {
-    this.screenFigures.innerText = toDisplay;
+  screenDisplay(toDisplayNumber) {
+    const toDisplay = "" + toDisplayNumber;
+    if (toDisplay.length >= 10) {
+      this.screenFigures.innerText = toDisplay.slice(0, 6) + "...";
+      this.screenFigures.addEventListener("click", () => {
+        this.calculatorScreen.classList.toggle("big");
+        this.calculatorButtons.classList.toggle("hidden");
+        this.calculatorScreen.style.cursor = "pointer";
+        if (this.calculatorButtons.classList.contains("hidden")) {
+          this.screenFigures.innerText = toDisplay;
+        } else {
+          this.screenFigures.innerText = toDisplay.slice(0, 6) + "...";
+        }
+      });
+    } else {
+      this.screenFigures.innerText = toDisplay;
+    }
   }
   //fraction is to use , only once for floats
   fraction(key) {
@@ -75,6 +92,10 @@ class Calculator {
         this.screenFigures.innerText = 0;
         this.fraction();
         this.first_number_add = null;
+        const allSelected = [...document.querySelectorAll(".selected")];
+        allSelected.forEach((selection) => {
+          selection.classList.remove("selected");
+        });
       }
       if (key == "+/-") {
         if (this.screenFigures.innerText != 0) {
@@ -103,6 +124,26 @@ class Calculator {
           this.screenDisplay(percentageString.replace(".", ","));
         } else {
           this.screenDisplay(percentageString);
+        }
+      }
+      if (key == "=") {
+        console.log("ass");
+        const allSelected = [...document.querySelectorAll(".selected")];
+        if (allSelected.length > 0) {
+          const selection = allSelected[0].innerText;
+          this.add(
+            this.first_number_add,
+            this.screenFigures.innerText,
+            selection
+          );
+          allSelected.forEach((selection) => {
+            selection.classList.remove("selected");
+          });
+        } else {
+          this.screenDisplay(this.screenFigures.innerText);
+          allSelected.forEach((selection) => {
+            selection.classList.remove("selected");
+          });
         }
       }
     }

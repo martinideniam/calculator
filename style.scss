@@ -103,3 +103,15 @@ body {
   filter: brightness(130%);
   color: black;
 }
+
+.hidden {
+  display: none;
+}
+
+.big {
+  height: 500px;
+  overflow: auto;
+  justify-content: center;
+  align-items: flex-start;
+  word-break: break-all;
+}
